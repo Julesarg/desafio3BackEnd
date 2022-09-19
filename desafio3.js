@@ -1,6 +1,6 @@
 const express = require(`express`);
 const app = express();
-const Contenedor = require("./ejemplo");
+const Contenedor = require("./constructor");
 
 const contenedor = new Contenedor(`productos.txt`);
 const productos = contenedor.getAll();

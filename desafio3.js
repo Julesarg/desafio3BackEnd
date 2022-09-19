@@ -5,9 +5,15 @@ const Contenedor = require("./constructor");
 const contenedor = new Contenedor(`productos.txt`);
 const productos = contenedor.getAll();
 
+app.get("/", (req, res) => {
+   productos.then((val) =>
+     res.send(`<h1>Ingrese las siguientes raices para ver: </br>/productos </br> /productoRandom</h1>`)
+   );
+ });
+
 app.get("/productos", (req, res) => {
   productos.then((val) =>
-    res.send(`<h2>Complete array: ${JSON.stringify(val)}</h2>`)
+    res.send(`<h2>Complete array: </br>${JSON.stringify(val)}</h2>`)
   );
 });
 

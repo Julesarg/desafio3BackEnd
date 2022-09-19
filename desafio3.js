@@ -6,10 +6,12 @@ const contenedor = new Contenedor(`productos.txt`);
 const productos = contenedor.getAll();
 
 app.get("/", (req, res) => {
-   productos.then((val) =>
-     res.send(`<h1>Ingrese las siguientes raices para ver: </br>/productos </br> /productoRandom</h1>`)
-   );
- });
+  productos.then((val) =>
+    res.send(
+      `<h1>Ingrese las siguientes raices para ver: </br>/productos </br> /productoRandom</h1>`
+    )
+  );
+});
 
 app.get("/productos", (req, res) => {
   productos.then((val) =>
@@ -26,7 +28,8 @@ app.get("/productoRandom", async (req, res) => {
   );
 });
 
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
+
 const server = app.listen(PORT, () => {
   console.log(`Servidor http escuchando en el puerto ${server.address().port}`);
 });
